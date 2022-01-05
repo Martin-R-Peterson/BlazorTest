@@ -13,75 +13,76 @@ namespace BlazorTest.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 1 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 2 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 3 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 4 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 5 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 6 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 7 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 8 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 9 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using BlazorTest;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
+#line 10 "C:\Users\marti\Documents\Skola\BlazorTest\_Imports.razor"
 using BlazorTest.Shared;
 
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/shop")]
     public partial class Shop : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -89,6 +90,62 @@ using BlazorTest.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 36 "C:\Users\marti\Documents\Skola\BlazorTest\Pages\Shop.razor"
+       
+    private List<ProductItems> Products = new();
+    private string? tempName;
+    private string tempDescription;
+    private int tempPrice;
+
+    private string tempLink;
+
+    private void AddProduct()
+    {
+        if (!string.IsNullOrWhiteSpace(tempName))
+        {
+            Products.Add(new ProductItems { Name = tempName, Description = tempDescription, Price = tempPrice, Link = tempLink });
+            tempName = string.Empty;
+            tempDescription = string.Empty;
+            tempPrice = 0;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Products.Add(new ProductItems
+        {
+            Name = "Nvidia GTX 970",
+            Description = "Bra Grafikkort",
+            Price = 1500,
+            Link =
+        "https://tpucdn.com/gpu-specs/images/c/2620-front.jpg"
+        });
+        Products.Add(new ProductItems
+        {
+            Name = "Nvidia RTX 2060",
+            Description = "Bättre Grafikkort",
+            Price = 4000,
+            Link =
+        "https://m.media-amazon.com/images/I/71vhQ8OjsAL.jpg"
+        });
+        Products.Add(new ProductItems
+        {
+            Name = "Nvidia RTX 3080",
+            Description = "Bäst Grafikkort",
+            Price = 10000,
+            Link =
+        "https://i5.walmartimages.com/asr/92315d04-9c63-4997-abcf-aa8abfee1ef4.91e4e15558ca6150bbf4d4d5392bf639.jpeg"
+        });
+
+    }
+
+
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

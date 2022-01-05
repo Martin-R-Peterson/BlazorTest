@@ -58,3 +58,5 @@ C:\Users\marti\Documents\Skola\BlazorTest\obj\Debug\net5.0\BlazorTest.genruntime
 C:\Users\marti\Documents\Skola\BlazorTest\obj\Debug\net5.0\BlazorTest.csproj.CopyComplete
 C:\Users\marti\Documents\Skola\BlazorTest\obj\Debug\net5.0\RazorDeclaration\Pages\Todo.razor.g.cs
 C:\Users\marti\Documents\Skola\BlazorTest\obj\Debug\net5.0\Razor\Pages\Todo.razor.g.cs
+C:\Users\marti\Documents\Skola\BlazorTest\obj\Debug\net5.0\RazorDeclaration\Pages\Shop.razor.g.cs
+C:\Users\marti\Documents\Skola\BlazorTest\obj\Debug\net5.0\Razor\Pages\Shop.razor.g.cs

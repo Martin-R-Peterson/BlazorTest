@@ -1,5 +1,86 @@
-﻿<h3>Shop</h3>
+﻿@page "/shop"
 
+
+
+<h1>Shop</h1>
+<h4>Lägg till Produkter</h4>
+<div>
+    <label class="label" for="name">Namn:</label>
+    <input type="text" @bind="tempName" id="name">
+    <label for="desc">Beskrivning:</label>
+    <input type="text" @bind="tempDescription" id="desc">
+    <label for="price">Pris:</label>
+    <input type="number" @bind="tempPrice" id="price">
+    <label for="link">Bild-Länk:</label>
+    <input @bind="tempLink" id="bild">
+    <button @onclick="AddProduct">Add Product</button>
+
+</div>
+
+<h2>Produkter</h2>
+<div class="card-deck">
+    @foreach (var product in Products)
+    {
+        <div class="card w-50">
+            <img class="card-img-top" src=@product.Link style=".card-img-top{ width: 300px !important}">
+            <div class="card-body">
+                <h5 class="card-title">Namn: @product.Name</h5>
+                <p class="card-text">Beskrivning: @product.Description</p>
+                <p class="card-text">Pris: @product.Price kr</p>
+                <a href="#" class="btn btn-primary">Köp</a>
+            </div>
+        </div>
+
+    }
+</div>
 @code {
+    private List<ProductItems> Products = new();
+    private string? tempName;
+    private string tempDescription;
+    private int tempPrice;
+
+    private string tempLink;
+
+    private void AddProduct()
+    {
+        if (!string.IsNullOrWhiteSpace(tempName))
+        {
+            Products.Add(new ProductItems { Name = tempName, Description = tempDescription, Price = tempPrice, Link = tempLink });
+            tempName = string.Empty;
+            tempDescription = string.Empty;
+            tempPrice = 0;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Products.Add(new ProductItems
+        {
+            Name = "Nvidia GTX 970",
+            Description = "Bra Grafikkort",
+            Price = 1500,
+            Link =
+        "https://tpucdn.com/gpu-specs/images/c/2620-front.jpg"
+        });
+        Products.Add(new ProductItems
+        {
+            Name = "Nvidia RTX 2060",
+            Description = "Bättre Grafikkort",
+            Price = 4000,
+            Link =
+        "https://m.media-amazon.com/images/I/71vhQ8OjsAL.jpg"
+        });
+        Products.Add(new ProductItems
+        {
+            Name = "Nvidia RTX 3080",
+            Description = "Bäst Grafikkort",
+            Price = 10000,
+            Link =
+        "https://i5.walmartimages.com/asr/92315d04-9c63-4997-abcf-aa8abfee1ef4.91e4e15558ca6150bbf4d4d5392bf639.jpeg"
+        });
+
+    }
+
+
 
 }
